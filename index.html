@@ -6,21 +6,21 @@
     <title>কোরবানীর ঈদ অফার - আপনার সিম নির্বাচন করুন</title>
     <style>
         :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #6c757d;
-            --success-color: #198754;
-            --danger-color: #dc3545;
-            --info-color: #0dcaf0;
+            --primary-color: #0d6efd; 
+            --secondary-color: #6c757d; 
+            --success-color: #198754; 
+            --danger-color: #dc3545; 
+            --info-color: #0dcaf0;   
             --light-bg: #f8f9fa;
             --dark-text: #212529;
             --light-text: #ffffff;
-            --border-color: #dee2e6; /* সাধারণ বর্ডার রঙ */
-            --soft-border-color: #e9ecef; /* সিম বাটনের জন্য হালকা বর্ডার */
-            --box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05); /* হালকা শ্যাডো */
-            --box-shadow-lg: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
-            --border-radius-md: 0.375rem; /* 6px */
-            --border-radius-lg: 0.5rem;   /* 8px */
-            --border-radius-xl: 0.75rem;  /* 12px, সিম বাটনের জন্য */
+            --border-color: #ced4da;
+            --soft-border-color: #e9ecef; 
+            --box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05); /* শ্যাডো আরও হালকা */
+            --box-shadow-lg: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.07);
+            --border-radius-md: 0.375rem; 
+            --border-radius-lg: 0.5rem;   
+            --border-radius-xl: 0.75rem;  
             --font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         }
 
@@ -63,8 +63,19 @@
             font-size: clamp(1.7em, 5vw, 2.1em);
             font-weight: 700;
         }
-        h2 { color: var(--dark-text); font-size: clamp(1.3em, 4vw, 1.5em); margin-bottom: 15px; font-weight: 600;}
-        h3 { color: var(--success-color); font-size: clamp(1.05em, 3.5vw, 1.25em); margin-top: -8px; margin-bottom: 12px; font-weight: 500;}
+        h2 { 
+            color: var(--dark-text); 
+            font-size: clamp(1.3em, 4vw, 1.5em); 
+            margin-bottom: 8px; /* পরিবর্তন এখানে: 15px থেকে 8px করা হয়েছে */
+            font-weight: 600;
+        }
+        h3 { 
+            color: var(--success-color); 
+            font-size: clamp(1.05em, 3.5vw, 1.25em); 
+            margin-top: -8px; 
+            margin-bottom: 12px; 
+            font-weight: 500;
+        }
 
         .input-section {
             margin-bottom: 25px;
@@ -97,59 +108,58 @@
 
         .sim-options {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); /* বাটন সাইজ অনুযায়ী অ্যাডজাস্ট করা হয়েছে */
-            gap: 15px; /* গ্যাপ সামান্য বাড়ানো হলো */
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); 
+            gap: 15px; 
             margin-bottom: 30px;
+            /* margin-top: 0; /* নিশ্চিত করার জন্য যে h2 এরই margin-bottom কাজ করছে */
         }
 
         .sim-button {
             background-color: var(--light-text);
-            border: 1px solid var(--soft-border-color); /* হালকা বর্ডার */
-            border-radius: var(--border-radius-xl); /* আরও গোলাকার */
-            padding: 15px 5px; /* প্যাডিং অ্যাডজাস্ট করা হলো */
+            border: 1px solid var(--soft-border-color); 
+            border-radius: var(--border-radius-xl); 
+            padding: 15px 5px; 
             cursor: pointer;
             transition: all 0.2s ease-in-out;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-around; /* কন্টেন্ট সুন্দরভাবে বিতরণের জন্য */
+            justify-content: space-around; 
             text-align: center;
-            min-height: 115px; /* রেফারেন্স ছবি অনুযায়ী উচ্চতা */
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04); /* খুবই হালকা শ্যাডো */
+            min-height: 115px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04); 
         }
         .sim-button:hover, .sim-button:focus-visible {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-            /* border-color: var(--primary-color); হোভারে বর্ডার কালার পরিবর্তন না করলেও চলে */
             outline: 2px solid transparent;
             outline-offset: 2px;
         }
         
         .sim-icon-img {
-            width: 42px;  /* রেফারেন্স ছবি অনুযায়ী লোগোর আকার */
-            height: 42px; /* রেফারেন্স ছবি অনুযায়ী লোগোর আকার */
+            width: 42px;  
+            height: 42px; 
             object-fit: contain;
             margin-bottom: 8px; 
         }
 
         .sim-button .sim-logo { 
             font-size: 0.75em; 
-            font-weight: 500; /* মিডিয়াম ওয়েট */
+            font-weight: 500; 
             text-transform: uppercase; 
             letter-spacing: 0.3px;
         }
 
-        .sim-logo.airtel { color: #E40000; } /* Airtel Red */
-        .sim-logo.robi { color: #79007B; } /* Robi Purple */
-        .sim-logo.grameenphone { color: #0075C9; } /* Grameenphone Blue */
-        .sim-logo.banglalink { color: #FF7F00; } /* Banglalink Orange */
-        .sim-logo.teletalk { color: #00883D; } /* Teletalk Green */
+        .sim-logo.airtel { color: #E40000; } 
+        .sim-logo.robi { color: #79007B; } 
+        .sim-logo.grameenphone { color: #0075C9; } 
+        .sim-logo.banglalink { color: #FF7F00; } 
+        .sim-logo.teletalk { color: #00883D; } 
 
         .sim-button.selected {
             border-width: 2px; 
             box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
         }
-        /* নির্বাচিত হলে নির্দিষ্ট বর্ডার কালার */
         .sim-button.selected[data-sim="Airtel"] { border-color: #E40000; }
         .sim-button.selected[data-sim="Robi"] { border-color: #79007B; }
         .sim-button.selected[data-sim="Grameenphone"] { border-color: #0075C9; }
@@ -166,6 +176,17 @@
         }
          .share-section p { color: #005c99; font-size: 0.95em; margin-bottom: 15px; }
 
+        .inpage-push-ad-container {
+            margin: 25px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        #container-bcb9dbcef7466f868680622063167c7e { 
+             /* This div is usually populated by the ad script */
+        }
+
         .action-button {
             color: var(--light-text);
             padding: 10px 25px; 
@@ -175,7 +196,7 @@
             font-size: 1em; 
             font-weight: 600; 
             transition: all 0.15s ease;
-            box-shadow: var(--box-shadow-sm);
+            box-shadow: var(--box-shadow); /* একটু স্পষ্ট শ্যাডো */
             text-transform: uppercase;
             letter-spacing: 0.75px; 
         }
@@ -184,7 +205,7 @@
             box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1); 
             outline: none;
         }
-        .action-button:active:not(:disabled) { transform: translateY(0); box-shadow: var(--box-shadow-sm); }
+        .action-button:active:not(:disabled) { transform: translateY(0); box-shadow: var(--box-shadow); }
         .action-button:disabled { background-color: #adb5bd; color: #e9ecef; cursor: not-allowed; transform: translateY(0); box-shadow: none; }
 
         #shareButton { background-color: var(--success-color); }
@@ -207,18 +228,7 @@
         .message-area.error { background-color: #f8d7da; color: #842029; border-color: #f5c2c7; }
         .message-area.info { background-color: #cff4fc; color: #055160; border-color: #b6effb; } 
 
-        .inpage-push-ad-container { /* ইন-পেজ পুশ অ্যাডের কন্টেইনার */
-            margin: 25px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
-        #container-bcb9dbcef7466f868680622063167c7e { /* বিজ্ঞাপনের দেওয়া আইডি */
-             /* এই ডিভটি সাধারণত বিজ্ঞাপন স্ক্রিপ্ট দ্বারা পপুলেট হয় */
-        }
-
-        .ad-slot { /* সাধারণ ব্যানার অ্যাড স্লট */
+        .ad-slot {
             width: 100%;
             display: flex;
             justify-content: center;
@@ -244,6 +254,7 @@
             body { padding: 10px; }
             .main-container { padding: 20px 15px; margin: 15px 0; }
             
+            h2 { margin-bottom: 10px; } /* ছোট স্ক্রিনেও অ্যাডজাস্টমেন্ট */
             .sim-options { 
                 grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); 
                 gap: 10px; 
@@ -263,7 +274,7 @@
                 grid-template-columns: repeat(2, 1fr); 
                 gap: 12px; 
             }
-            .sim-button { min-height: 105px; } /* লোগো ও টেক্সট ঠিকভাবে দেখানোর জন্য */
+            .sim-button { min-height: 105px; } 
             .sim-icon-img { width: 38px; height: 38px;} 
          }
     </style>
