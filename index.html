@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>কোরবানীর ঈদ অফার - ৫ জিবি বোনাস ইন্টারনেট</title> <!-- পরিবর্তিত টাইটেল -->
+    <title>কোরবানীর ঈদ অফার - ৫ জিবি বোনাস ইন্টারনেট</title>
     <style>
         :root {
             --primary-color: #0d6efd; 
@@ -61,7 +61,7 @@
             box-sizing: border-box;
         }
 
-        h1 { /* এই শিরোনামটি পরিবর্তিত হবে */
+        h1 {
             text-align: center;
             color: var(--primary-color);
             margin-bottom: 35px; 
@@ -82,7 +82,7 @@
             font-weight: 500;
         }
 
-        .input-section {
+        .input-section { /* সাধারণ ইনপুট সেকশন, যেমন নামের জন্য */
             margin-bottom: 25px;
         }
         .input-section label {
@@ -92,8 +92,7 @@
             color: #495057;
             font-size: 0.95em;
         }
-        .input-section input[type="text"],
-        .input-section input[type="tel"] {
+        .input-section input[type="text"] { /* শুধুমাত্র নামের ইনপুট */
             width: 100%;
             padding: 12px 15px;
             border: 1px solid var(--border-color);
@@ -103,9 +102,7 @@
             background-color: #fdfdff; 
         }
         .input-section input[type="text"]:focus,
-        .input-section input[type="tel"]:focus,
-        .input-section input[type="text"]:focus-visible,
-        .input-section input[type="tel"]:focus-visible {
+        .input-section input[type="text"]:focus-visible {
             border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(var(--primary-color), .15);
             outline: none;
@@ -196,7 +193,42 @@
              /* This div is usually populated by the ad script */
         }
 
-        .action-button {
+        /* ফোন নম্বর ইনপুট সেকশনের জন্য উন্নত স্টাইল */
+        #phoneInputSection {
+            margin-top: 25px; /* উপরের সেকশন থেকে দূরত্ব */
+            padding: 25px;
+            background-color: #f7faff; /* খুব হালকা নীল ব্যাকগ্রাউন্ড */
+            border-radius: var(--border-radius-lg);
+            border: 1px solid #dae6ff;
+            box-shadow: var(--box-shadow-sm);
+        }
+        #phoneInputSection h2 { /* "আপনার ফোন নম্বর দিন:" শিরোনাম */
+            font-size: clamp(1.2em, 4vw, 1.45em);
+            margin-bottom: 15px;
+            text-align: left;
+            color: var(--primary-color-dark);
+        }
+        #phoneInputSection input[type="tel"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            font-size: 1em;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            background-color: var(--white-bg); /* সাদা ব্যাকগ্রাউন্ড */
+            margin-bottom: 15px; /* বাটন থেকে দূরত্ব */
+        }
+        #phoneInputSection input[type="tel"]:focus,
+        #phoneInputSection input[type="tel"]:focus-visible {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(var(--primary-color), .2);
+            outline: none;
+        }
+        #phoneInputSection #confirmButton {
+            width: 100%;
+        }
+
+        .action-button { /* সাধারণ অ্যাকশন বাটন স্টাইল */
             color: var(--light-text);
             padding: 12px 28px; 
             border: none;
@@ -222,17 +254,19 @@
         #confirmButton { background-color: var(--primary-color); }
         #confirmButton:hover:not(:disabled) { background-color: var(--primary-color-dark); }
 
-        #phoneInputSection {
-            display: flex; gap: 12px; align-items: center;
-        }
-        #phoneInputSection input[type="tel"] { flex-grow: 1; }
-        #phoneInputSection .action-button { flex-shrink: 0; padding: 12px 20px; }
 
         .message-area {
-            margin-top: 25px; padding: 15px 20px; border-radius: var(--border-radius-md); font-weight: 500;
-            text-align: center; border-width: 1px; border-style: solid; font-size: 1em;
+            margin-top: 20px; /* ফোন সেকশনের পরে বাটন থেকে দূরত্ব */
+            padding: 15px 20px; 
+            border-radius: var(--border-radius-md); 
+            font-weight: 500;
+            text-align: center; 
+            border-width: 1px; 
+            border-style: solid; 
+            font-size: 1em;
             display: none; 
             box-shadow: var(--box-shadow-sm);
+            line-height: 1.5; 
         }
         .message-area.success { background-color: #d1e7dd; color: #0f5132; border-color: #badbcc; }
         .message-area.error { background-color: #f8d7da; color: #842029; border-color: #f5c2c7; }
@@ -273,10 +307,11 @@
             .sim-icon-img { width: 32px; height: 32px; margin-bottom: 6px;} 
             .sim-button .sim-logo { font-size: 0.65em; }
 
-            #phoneInputSection { flex-direction: column; align-items: stretch; }
-            #phoneInputSection input[type="tel"],
-            #phoneInputSection .action-button { width: 100%; }
-            #phoneInputSection .action-button { margin-top: 12px; } 
+            /* ফোন ইনপুট সেকশন ছোট স্ক্রিনে অ্যাডজাস্টমেন্ট */
+            #phoneInputSection { padding: 20px; } 
+            #phoneInputSection h2 { font-size: clamp(1.1em, 3.8vw, 1.3em); }
+            #phoneInputSection input[type="tel"] { margin-bottom: 12px; }
+            
             .ad-slot, .inpage-push-ad-container { margin: 20px 0; }
         }
          @media (max-width: 420px) { 
@@ -298,7 +333,6 @@
 
         <main class="main-container">
             <section aria-labelledby="offer-title">
-                <!-- পরিবর্তিত প্রধান শিরোনাম -->
                 <h1 id="offer-title">কোরবানীর ঈদ উপলক্ষে ৫ জিবি বোনাস ইন্টারনেট</h1>
 
                 <div id="nameInputSection" class="input-section">
@@ -345,10 +379,11 @@
                 <div id="container-bcb9dbcef7466f868680622063167c7e"></div>
             </section>
 
-            <section id="phoneInputSection" class="input-section" style="display: none; margin-top: 20px;" aria-labelledby="phone-input-title">
+            <!-- ফোন ইনপুট সেকশনের HTML অপরিবর্তিত, শুধু CSS দিয়ে স্টাইল করা হয়েছে -->
+            <section id="phoneInputSection" style="display: none;" aria-labelledby="phone-input-title">
                 <h2 id="phone-input-title">আপনার ফোন নম্বর দিন:</h2>
                 <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="১১ সংখ্যার ফোন নম্বর (যেমন: ০১xxxxxxxxx)" pattern="01[3-9]\d{8}" title="একটি সঠিক ১১ সংখ্যার বাংলাদেশী ফোন নম্বর দিন">
-                <button id="confirmButton" class="action-button" style="margin-top:15px; width:100%;">ঈদ অফার নিশ্চিত করুন</button>
+                <button id="confirmButton" class="action-button">ঈদ অফার নিশ্চিত করুন</button>
             </section>
 
             <p id="messageArea" class="message-area" role="alert"></p> 
@@ -392,9 +427,19 @@
             let selectedSim = null;
             let hasShared = false;
 
-            function showElement(element, displayType = 'flex') {
-                if (element) element.style.display = displayType;
+            function showElement(element, displayType = 'block') { // Changed default to block for most cases
+                if (element) {
+                    if(element.id === 'phoneInputSection' && window.innerWidth > 600) { // Keep phoneInputSection flex on larger screens
+                         element.style.display = 'block'; // On smaller screens, it's block due to CSS media query
+                    } else if (element.id === 'phoneInputSection'){
+                         element.style.display = 'block';
+                    }
+                    else {
+                        element.style.display = displayType;
+                    }
+                }
             }
+
 
             function hideElement(element) {
                 if (element) element.style.display = 'none';
@@ -410,7 +455,7 @@
 
             function displayUserMessage(text, type) {
                 messageArea.textContent = text;
-                messageArea.className = `message-area ${type}`;
+                messageArea.className = `message-area ${type}`; // Ensure only one type class is active
                 showElement(messageArea, 'block');
             }
 
@@ -460,7 +505,7 @@
                     }
                     displayUserMessage('খুব ভালো! শেয়ার করার জন্য ধন্যবাদ। এবার আপনার ফোন নম্বরটি দিন ঈদ বোনাস পেতে।', 'success');
                     hasShared = true;
-                    showElement(phoneInputSection);
+                    showElement(phoneInputSection, 'block'); // Ensure phoneInputSection is block
                     phoneNumberInput.focus();
                 } catch (error) {
                     console.error('Sharing error:', error);
