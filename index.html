@@ -6,35 +6,37 @@
     <title>কোরবানীর ঈদ অফার - আপনার সিম নির্বাচন করুন</title>
     <style>
         :root {
-            --primary-color: #0d6efd; 
-            --secondary-color: #6c757d; 
-            --success-color: #198754; 
-            --danger-color: #dc3545; 
-            --info-color: #0dcaf0;   
-            --light-bg: #f8f9fa;
-            --dark-text: #212529;
+            --primary-color: #007bff; /* প্রধান নীল */
+            --primary-color-dark: #0056b3; /* গাঢ় নীল */
+            --secondary-color: #6c757d;
+            --success-color: #20c997; /* একটি উজ্জ্বল সবুজ */
+            --success-color-dark: #15a37a;
+            --light-bg: #eef2f7; /* হালকা নীলাভ ধূসর ব্যাকগ্রাউন্ড */
+            --white-bg: #ffffff;
+            --dark-text: #343a40;
             --light-text: #ffffff;
-            --border-color: #ced4da;
-            --soft-border-color: #e9ecef; 
-            --box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05); /* শ্যাডো আরও হালকা */
-            --box-shadow-lg: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.07);
-            --border-radius-md: 0.375rem; 
-            --border-radius-lg: 0.5rem;   
-            --border-radius-xl: 0.75rem;  
-            --font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --border-color: #dee2e6;
+            --soft-border-color: #e0e7ef;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --box-shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         }
 
         body {
             font-family: var(--font-family-sans-serif);
-            background-color: var(--light-bg);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* সফট গ্রেডিয়েন্ট ব্যাকগ্রাউন্ড */
             color: var(--dark-text);
             margin: 0;
-            padding: 15px;
-            line-height: 1.6;
+            padding: 20px 15px; /* বডির প্যাডিং */
+            line-height: 1.65; /* লাইন হাইট সামান্য বাড়ানো হলো */
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased; /* ফন্ট স্মুদিং */
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .page-wrapper {
@@ -43,13 +45,13 @@
         }
 
         .main-container {
-            background-color: var(--light-text);
-            padding: 30px;
+            background-color: var(--white-bg);
+            padding: 30px 35px; /* প্যাডিং সামান্য বাড়ানো হলো */
             border-radius: var(--border-radius-lg);
             box-shadow: var(--box-shadow-lg);
             width: 100%;
             margin: 20px 0;
-            border-top: 4px solid var(--primary-color);
+            border-top: 5px solid var(--primary-color);
         }
 
         *, *::before, *::after {
@@ -59,170 +61,173 @@
         h1 {
             text-align: center;
             color: var(--primary-color);
-            margin-bottom: 30px;
-            font-size: clamp(1.7em, 5vw, 2.1em);
+            margin-bottom: 35px; /* মার্জিন বাড়ানো হলো */
+            font-size: clamp(1.8em, 5.5vw, 2.3em);
             font-weight: 700;
         }
         h2 { 
             color: var(--dark-text); 
-            font-size: clamp(1.3em, 4vw, 1.5em); 
-            margin-bottom: 8px; /* পরিবর্তন এখানে: 15px থেকে 8px করা হয়েছে */
+            font-size: clamp(1.35em, 4.5vw, 1.55em); 
+            margin-bottom: 12px; /* মার্জিন অ্যাডজাস্ট করা হলো */
             font-weight: 600;
         }
         h3 { 
             color: var(--success-color); 
-            font-size: clamp(1.05em, 3.5vw, 1.25em); 
-            margin-top: -8px; 
-            margin-bottom: 12px; 
+            font-size: clamp(1.1em, 4vw, 1.3em); 
+            margin-top: -5px; 
+            margin-bottom: 15px; 
             font-weight: 500;
         }
 
         .input-section {
             margin-bottom: 25px;
         }
-
         .input-section label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
             color: #495057;
+            font-size: 0.95em;
         }
-
         .input-section input[type="text"],
         .input-section input[type="tel"] {
             width: 100%;
-            padding: 10px 15px;
+            padding: 12px 15px;
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius-md);
             font-size: 1em;
-            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            background-color: #fdfdff; /* ইনপুটের হালকা ব্যাকগ্রাউন্ড */
         }
         .input-section input[type="text"]:focus,
         .input-section input[type="tel"]:focus,
         .input-section input[type="text"]:focus-visible,
         .input-section input[type="tel"]:focus-visible {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(var(--primary-color), .25);
+            box-shadow: 0 0 0 3px rgba(var(--primary-color), .15);
             outline: none;
+            background-color: var(--white-bg);
         }
 
         .sim-options {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); 
-            gap: 15px; 
-            margin-bottom: 30px;
-            /* margin-top: 0; /* নিশ্চিত করার জন্য যে h2 এরই margin-bottom কাজ করছে */
+            grid-template-columns: repeat(5, 1fr); /* ডেস্কটপে সবসময় ৫ কলাম */
+            gap: 12px; 
+            margin-bottom: 35px;
+            margin-top: 5px; /* h2 থেকে সামান্য দূরত্ব */
         }
 
         .sim-button {
-            background-color: var(--light-text);
+            background-color: var(--white-bg);
             border: 1px solid var(--soft-border-color); 
-            border-radius: var(--border-radius-xl); 
+            border-radius: var(--border-radius-md); /* সামান্য কম রাউন্ডেড */
             padding: 15px 5px; 
             cursor: pointer;
-            transition: all 0.2s ease-in-out;
+            transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1); /* উন্নত ট্রানজিশন */
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-around; 
+            justify-content: center; 
             text-align: center;
-            min-height: 115px; 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04); 
+            min-height: 100px; /* উচ্চতা সামঞ্জস্যপূর্ণ রাখা */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
         .sim-button:hover, .sim-button:focus-visible {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-            outline: 2px solid transparent;
-            outline-offset: 2px;
+            transform: translateY(-3px) scale(1.03); /* হোভারে স্কেল ইফেক্ট */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: transparent; /* হোভারে বর্ডার না দেখালেও চলে যদি শ্যাডো থাকে */
+            outline: none;
         }
         
         .sim-icon-img {
-            width: 42px;  
-            height: 42px; 
+            width: 38px;  
+            height: 38px; 
             object-fit: contain;
-            margin-bottom: 8px; 
+            margin-bottom: 10px; /* লোগো ও নামের মধ্যে ফাঁক */
         }
 
         .sim-button .sim-logo { 
-            font-size: 0.75em; 
-            font-weight: 500; 
+            font-size: 0.7rem; /* ফন্ট আরও ছোট এবং মানানসই */
+            font-weight: 600; 
             text-transform: uppercase; 
-            letter-spacing: 0.3px;
+            letter-spacing: 0.4px;
+            line-height: 1.2;
         }
 
         .sim-logo.airtel { color: #E40000; } 
-        .sim-logo.robi { color: #79007B; } 
-        .sim-logo.grameenphone { color: #0075C9; } 
-        .sim-logo.banglalink { color: #FF7F00; } 
-        .sim-logo.teletalk { color: #00883D; } 
+        .sim-logo.robi { color: #6b0081; } 
+        .sim-logo.grameenphone { color: #0076c8; } 
+        .sim-logo.banglalink { color: #f38a00; } 
+        .sim-logo.teletalk { color: #008f39; } 
 
         .sim-button.selected {
             border-width: 2px; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+            transform: translateY(-1px) scale(1.02);
         }
-        .sim-button.selected[data-sim="Airtel"] { border-color: #E40000; }
-        .sim-button.selected[data-sim="Robi"] { border-color: #79007B; }
-        .sim-button.selected[data-sim="Grameenphone"] { border-color: #0075C9; }
-        .sim-button.selected[data-sim="Banglalink"] { border-color: #FF7F00; }
-        .sim-button.selected[data-sim="Teletalk"] { border-color: #00883D; }
+        .sim-button.selected[data-sim="Airtel"] { border-color: #E40000; box-shadow: 0 0 10px rgba(228,0,0,0.3); }
+        .sim-button.selected[data-sim="Robi"] { border-color: #6b0081; box-shadow: 0 0 10px rgba(107,0,129,0.3); }
+        .sim-button.selected[data-sim="Grameenphone"] { border-color: #0076c8; box-shadow: 0 0 10px rgba(0,118,200,0.3); }
+        .sim-button.selected[data-sim="Banglalink"] { border-color: #f38a00; box-shadow: 0 0 10px rgba(243,138,0,0.3); }
+        .sim-button.selected[data-sim="Teletalk"] { border-color: #008f39; box-shadow: 0 0 10px rgba(0,143,57,0.3); }
 
         .share-section {
-            background-color: #e6f7ff; 
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); /* হালকা সায়ান গ্রেডিয়েন্ট */
             padding: 25px;
-            border-radius: var(--border-radius-md);
+            border-radius: var(--border-radius-lg); /* আরও রাউন্ডেড */
             text-align: center;
             margin-bottom: 30px;
-            border: 1px solid #b3e0ff;
+            border: none; /* বর্ডার বাদ দেওয়া হলো */
+            box-shadow: var(--box-shadow);
         }
-         .share-section p { color: #005c99; font-size: 0.95em; margin-bottom: 15px; }
+         .share-section h2 { color: #00796b; } /* গাঢ় সায়ান */
+         .share-section h3 { color: #004d40; } /* আরও গাঢ় সায়ান */
+         .share-section p { color: #00695c; font-size: 0.95em; margin-bottom: 20px; }
 
         .inpage-push-ad-container {
-            margin: 25px auto;
+            margin: 30px auto;
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
         }
-        #container-bcb9dbcef7466f868680622063167c7e { 
-             /* This div is usually populated by the ad script */
-        }
 
         .action-button {
             color: var(--light-text);
-            padding: 10px 25px; 
+            padding: 12px 28px; 
             border: none;
             border-radius: var(--border-radius-md);
             cursor: pointer;
             font-size: 1em; 
             font-weight: 600; 
-            transition: all 0.15s ease;
-            box-shadow: var(--box-shadow); /* একটু স্পষ্ট শ্যাডো */
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             text-transform: uppercase;
-            letter-spacing: 0.75px; 
+            letter-spacing: 0.8px; 
         }
         .action-button:hover:not(:disabled), .action-button:focus-visible:not(:disabled) { 
             transform: translateY(-2px); 
-            box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1); 
+            box-shadow: 0 5px 12px rgba(0,0,0,0.15); 
             outline: none;
         }
-        .action-button:active:not(:disabled) { transform: translateY(0); box-shadow: var(--box-shadow); }
+        .action-button:active:not(:disabled) { transform: translateY(0); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .action-button:disabled { background-color: #adb5bd; color: #e9ecef; cursor: not-allowed; transform: translateY(0); box-shadow: none; }
 
         #shareButton { background-color: var(--success-color); }
-        #shareButton:hover:not(:disabled) { background-color: #157347; }
+        #shareButton:hover:not(:disabled) { background-color: var(--success-color-dark); }
         #confirmButton { background-color: var(--primary-color); }
-        #confirmButton:hover:not(:disabled) { background-color: #0b5ed7; }
+        #confirmButton:hover:not(:disabled) { background-color: var(--primary-color-dark); }
 
         #phoneInputSection {
-            display: flex; gap: 10px; align-items: center;
+            display: flex; gap: 12px; align-items: center;
         }
         #phoneInputSection input[type="tel"] { flex-grow: 1; }
-        #phoneInputSection .action-button { flex-shrink: 0; padding: 10px 18px; }
+        #phoneInputSection .action-button { flex-shrink: 0; padding: 12px 20px; }
 
         .message-area {
-            margin-top: 20px; padding: 12px 18px; border-radius: var(--border-radius-md); font-weight: 500;
+            margin-top: 25px; padding: 15px 20px; border-radius: var(--border-radius-md); font-weight: 500;
             text-align: center; border-width: 1px; border-style: solid; font-size: 1em;
             display: none; 
+            box-shadow: var(--box-shadow-sm);
         }
         .message-area.success { background-color: #d1e7dd; color: #0f5132; border-color: #badbcc; }
         .message-area.error { background-color: #f8d7da; color: #842029; border-color: #f5c2c7; }
@@ -233,7 +238,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 20px 0; 
+            margin: 25px 0; 
             min-height: 60px;
             text-align: center;
             box-sizing: border-box;
@@ -242,40 +247,41 @@
         
         footer {
             text-align: center;
-            margin-top: 25px;
-            padding: 15px 0;
+            margin-top: 30px;
+            padding: 20px 0;
             border-top: 1px solid var(--border-color);
             color: var(--secondary-color);
-            font-size: 0.875em; 
+            font-size: 0.9em; 
             width: 100%;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 600px) { /* প্রধান ব্রেকপয়েন্ট 600px এ রাখা হলো */
             body { padding: 10px; }
-            .main-container { padding: 20px 15px; margin: 15px 0; }
+            .main-container { padding: 25px 20px; margin: 15px 0; }
             
-            h2 { margin-bottom: 10px; } /* ছোট স্ক্রিনেও অ্যাডজাস্টমেন্ট */
+            h2 { margin-bottom: 10px; } 
             .sim-options { 
-                grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); 
+                grid-template-columns: repeat(3, 1fr); /* মাঝারি স্ক্রিনে ৩ কলাম */
                 gap: 10px; 
             }
-            .sim-button { padding: 10px 5px; min-height: 100px; } 
-            .sim-icon-img { width: 36px; height: 36px; margin-bottom: 6px;} 
-            .sim-button .sim-logo { font-size: 0.7em; }
+            .sim-button { padding: 12px 5px; min-height: 95px; } 
+            .sim-icon-img { width: 32px; height: 32px; margin-bottom: 6px;} 
+            .sim-button .sim-logo { font-size: 0.65em; }
 
             #phoneInputSection { flex-direction: column; align-items: stretch; }
             #phoneInputSection input[type="tel"],
             #phoneInputSection .action-button { width: 100%; }
-            #phoneInputSection .action-button { margin-top: 10px; }
-            .ad-slot, .inpage-push-ad-container { margin: 15px 0; }
+            #phoneInputSection .action-button { margin-top: 12px; } /* সামান্য গ্যাপ */
+            .ad-slot, .inpage-push-ad-container { margin: 20px 0; }
         }
-         @media (max-width: 480px) { 
+         @media (max-width: 420px) { 
             .sim-options { 
                 grid-template-columns: repeat(2, 1fr); 
                 gap: 12px; 
             }
-            .sim-button { min-height: 105px; } 
-            .sim-icon-img { width: 38px; height: 38px;} 
+            .sim-button { min-height: 100px; } 
+            .sim-icon-img { width: 36px; height: 36px;} 
+            .action-button { font-size: 0.95em; padding: 10px 20px;}
          }
     </style>
 </head>
