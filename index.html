@@ -3,162 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>সিম নির্বাচন করুন</title>
+    <title>কোরবানীর ঈদ অফার - আপনার সিম নির্বাচন করুন</title>
     <style>
-        /* General Styles */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --warning-color: #ffc107;
+            --light-bg: #f8f9fa;
+            --dark-text: #343a40;
+            --light-text: #ffffff;
+            --border-color: #dee2e6;
+            --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            --box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-            background-color: #f0f2f5;
-            color: #333;
+            font-family: var(--font-family-sans-serif);
+            background-color: var(--light-bg);
+            color: var(--dark-text);
             margin: 0;
-            padding: 15px;
+            padding: 20px;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
         }
 
-        .container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            max-width: 750px;
+        .main-container {
+            background-color: var(--light-text);
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            max-width: 650px;
             width: 100%;
-            margin: 20px auto; 
+            margin: 20px auto;
+            border-top: 5px solid var(--primary-color);
         }
 
         *, *::before, *::after {
             box-sizing: border-box;
         }
 
-        h1, h2, h3 {
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.25);
-            color: #1d2129;
-        }
-
         h1 {
             text-align: center;
-            color: #007bff;
-            margin-bottom: 25px;
-            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            font-weight: 600;
         }
+        h2 { color: var(--dark-text); font-size: 1.6em; margin-bottom: 15px;}
+        h3 { color: var(--success-color); font-size: 1.3em; margin-top: -5px; margin-bottom: 10px;}
 
         .input-section {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .input-section label {
             display: block;
-            margin-bottom: 6px;
-            font-weight: 600;
-            color: #4b4f56;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #495057;
         }
 
         .input-section input[type="text"],
         .input-section input[type="tel"] {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ccd0d5;
-            border-radius: 6px;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             font-size: 1em;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         }
         .input-section input[type="text"]:focus,
         .input-section input[type="tel"]:focus {
-            border-color: #007bff;
+            border-color: var(--primary-color);
             box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
             outline: none;
         }
 
         .sim-options {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+            gap: 12px; 
+            margin-bottom: 35px;
         }
 
         .sim-button {
-            background-image: linear-gradient(to bottom, #ffffff, #f0f0f0);
-            border: 2px solid #dcdcdc;
+            background-color: var(--light-text);
+            border: 2px solid var(--border-color);
             border-radius: 10px;
-            padding: 15px;
+            padding: 15px 10px; 
             cursor: pointer;
-            transition: all 0.25s ease-in-out;
+            transition: all 0.2s ease-in-out;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            justify-content: center; 
             text-align: center;
-            min-height: 100px;
+            min-height: 110px; 
+            box-shadow: var(--box-shadow-sm);
         }
-
         .sim-button:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
-            border-color: #ababab;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
         }
-
-        .sim-button .traffic-light {
-            font-size: 2em;
+        
+        .sim-icon-img { /* লোগো ইমেজের জন্য স্টাইল */
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
             margin-bottom: 8px;
-            line-height: 1;
         }
 
-        .sim-button .sim-logo {
-            font-size: 1.1em;
-            font-weight: bold;
-            text-transform: uppercase;
+        .sim-button .sim-logo { 
+            font-size: 0.85em; 
+            font-weight: 600; 
+            text-transform: uppercase; 
         }
 
         .sim-logo.airtel { color: #e50914; }
         .sim-logo.robi { color: #6a0dad; }
         .sim-logo.grameenphone { color: #0073b1; }
         .sim-logo.banglalink { color: #f39c12; }
+        .sim-logo.teletalk { color: #008000; } 
 
-        .sim-button.selected {
-            color: white;
-            transform: translateY(-2px) scale(1.02);
-        }
-        .sim-button.selected .sim-logo { color: white; }
+        .sim-button.selected[data-sim="Airtel"] { border-color: #e50914; }
+        .sim-button.selected[data-sim="Robi"] { border-color: #6a0dad; }
+        .sim-button.selected[data-sim="Grameenphone"] { border-color: #0073b1; }
+        .sim-button.selected[data-sim="Banglalink"] { border-color: #f39c12; }
+        .sim-button.selected[data-sim="Teletalk"] { border-color: #008000; }
 
-        .sim-button.selected[data-sim="Airtel"] {
-            background-color: #e50914; border-color: #c00710; box-shadow: 0 0 12px rgba(229, 9, 20, 0.6);
-        }
-        .sim-button.selected[data-sim="Robi"] {
-            background-color: #6a0dad; border-color: #500784; box-shadow: 0 0 12px rgba(106, 13, 173, 0.6);
-        }
-        .sim-button.selected[data-sim="Grameenphone"] {
-            background-color: #0073b1; border-color: #005a8c; box-shadow: 0 0 12px rgba(0, 115, 177, 0.6);
-        }
-        .sim-button.selected[data-sim="Banglalink"] {
-            background-color: #f39c12; border-color: #d08203; box-shadow: 0 0 12px rgba(243, 156, 18, 0.6);
-        }
 
         .share-section {
-            background-color: #e9f5ff;
-            padding: 20px;
-            border-radius: 8px;
+            background-color: #e9f5ff; 
+            padding: 25px;
+            border-radius: 10px;
             text-align: center;
-            margin-bottom: 25px;
-            border: 1px dashed #007bff;
+            margin-bottom: 30px;
+            border: 1px solid #bce0ff;
         }
-        .share-section h2 { color: #0056b3; margin-top: 0; }
-        .share-section h3 { color: #28a745; margin-top: -10px; font-size: 1.3em; }
-        .share-section p { color: #333; font-size: 0.95em; }
+         .share-section p { color: #004085; font-size: 1em; margin-bottom: 15px; }
+
 
         .action-button {
-            color: white; padding: 12px 25px; border: none; border-radius: 6px; cursor: pointer;
-            font-size: 1.1em; font-weight: bold; transition: background-color 0.2s ease, transform 0.15s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            color: var(--light-text);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: var(--box-shadow-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .action-button:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+        .action-button:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
         .action-button:active:not(:disabled) { transform: translateY(-1px); }
-        .action-button:disabled { background-color: #ced4da; color: #6c757d; cursor: not-allowed; transform: translateY(0); box-shadow: none; }
+        .action-button:disabled { background-color: #adb5bd; color: #6c757d; cursor: not-allowed; transform: translateY(0); box-shadow: none; }
 
-        #shareButton { background-color: #28a745; }
-        #shareButton:hover:not(:disabled) { background-color: #218838; }
-        #confirmButton { background-color: #007bff; }
+        #shareButton { background-color: var(--success-color); }
+        #shareButton:hover:not(:disabled) { background-color: #1e7e34; }
+        #confirmButton { background-color: var(--primary-color); }
         #confirmButton:hover:not(:disabled) { background-color: #0056b3; }
 
         #phoneInputSection {
@@ -168,101 +179,140 @@
         #phoneInputSection .action-button { flex-shrink: 0; padding: 12px 20px; }
 
         .message-area {
-            margin-top: 20px; padding: 12px; border-radius: 6px; font-weight: 500;
-            text-align: center; border: 1px solid transparent;
+            margin-top: 25px; padding: 15px 20px; border-radius: 8px; font-weight: 500;
+            text-align: center; border: 1px solid transparent; font-size: 1.05em;
         }
         .message-area.success { background-color: #d4edda; color: #155724; border-color: #c3e6cb; }
         .message-area.error { background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; }
         .message-area.info { background-color: #d1ecf1; color: #0c5460; border-color: #bee5eb; }
 
-        /* ব্যানার অ্যাড স্লটের জন্য স্টাইল (যদি প্রয়োজন হয়) */
         .ad-slot {
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 20px; 
-            /* background-color: #e9ecef; */ /* ঐচ্ছিক প্লেসহোল্ডার ব্যাকগ্রাউন্ড */
-            min-height: 60px; /* বিজ্ঞাপনের উচ্চতা অনুযায়ী */
-            /* border: 1px dashed #ccc; */ /* ঐচ্ছিক প্লেসহোল্ডার বর্ডার */
+            margin: 25px 0; 
+            min-height: 60px;
             text-align: center;
             box-sizing: border-box;
             overflow: hidden; 
         }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--secondary-color);
+            font-size: 0.9em;
+        }
 
+        @media (max-width: 700px) {
+            body { padding: 15px; }
+            .main-container { padding: 20px; margin: 15px auto; }
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.4em; }
+            .sim-options { 
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); 
+                gap: 8px; 
+            }
+            .sim-button { padding: 12px 8px; min-height: 100px; } 
+            .sim-icon-img { width: 30px; height: 30px; margin-bottom: 6px;} 
+            .sim-button .sim-logo { font-size: 0.75em; }
 
-        @media (max-width: 600px) {
-            body { padding: 10px; }
-            .container { padding: 15px; margin: 15px auto; }
-            h1 { font-size: 1.6em; }
-            h2 { font-size: 1.3em; }
-            .sim-options { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
-            .sim-button { padding: 12px; min-height: 90px; }
-            .sim-button .traffic-light { font-size: 1.8em; }
-            .sim-button .sim-logo { font-size: 1em; }
 
             #phoneInputSection { flex-direction: column; align-items: stretch; }
             #phoneInputSection input[type="tel"],
             #phoneInputSection .action-button { width: 100%; }
             #phoneInputSection .action-button { margin-top: 10px; }
-
-            .ad-slot { margin-bottom: 15px; }
+            .ad-slot { margin: 20px 0; }
         }
+         @media (max-width: 400px) { 
+            .sim-options { 
+                grid-template-columns: repeat(2, 1fr); 
+            }
+            .sim-button { min-height: 90px; }
+            .sim-icon-img { width: 25px; height: 25px;}
+            .sim-button .sim-logo { font-size: 0.7em; }
+         }
     </style>
 </head>
 <body>
 
-    <!-- একটি ব্যানার বিজ্ঞাপন স্লট (পেজের উপরে) -->
+    <!-- প্রথম ব্যানার বিজ্ঞাপন স্লট (পেজের উপরে) -->
     <div class="ad-slot">
         <ins style="width: 468px;height:60px" data-width="468" data-height="60" class="z2ec2b7ef83" data-domain="//data258.click" data-affquery="/1f0c5c8df4e2fb73a05d/2ec2b7ef83/?placementName=default"><script src="//data258.click/js/responsive.js" async></script></ins>
     </div>
 
-
-    <div class="container">
-        <h1>আপনার সিম নির্বাচন করুন</h1>
+    <div class="main-container">
+        <h1>কোরবানীর ঈদ উপলক্ষে বিশেষ অফার!</h1>
 
         <div id="nameInputSection" class="input-section">
-            <label for="sharerName">আপনার নাম (ঐচ্ছিক):</label>
-            <input type="text" id="sharerName" placeholder="এখানে আপনার নাম লিখুন">
+            <label for="sharerName">আপনার নাম (যদি চান):</label>
+            <input type="text" id="sharerName" placeholder="আপনার পুরো নাম">
         </div>
 
+        <h2>আপনার সিম অপারেটর নির্বাচন করুন:</h2>
         <div class="sim-options">
             <button class="sim-button" data-sim="Airtel">
-                <span class="traffic-light">🚦</span>
-                <span class="sim-logo airtel">airtel</span>
+                <img src="logos/airtel-logo.png" alt="Airtel" class="sim-icon-img">
+                <span class="sim-logo airtel">Airtel</span>
             </button>
             <button class="sim-button" data-sim="Robi">
-                <span class="traffic-light">🚦</span>
-                <span class="sim-logo robi">robi</span>
+                <img src="logos/robi-logo.png" alt="Robi" class="sim-icon-img">
+                <span class="sim-logo robi">Robi</span>
             </button>
             <button class="sim-button" data-sim="Grameenphone">
-                <span class="traffic-light">🚦</span>
-                <span class="sim-logo grameenphone">grameenphone</span>
+                <img src="logos/gp-logo.png" alt="Grameenphone" class="sim-icon-img">
+                <span class="sim-logo grameenphone">Grameenphone</span>
             </button>
             <button class="sim-button" data-sim="Banglalink">
-                <span class="traffic-light">🚦</span>
-                <span class="sim-logo banglalink">banglalink</span>
+                <img src="logos/bl-logo.png" alt="Banglalink" class="sim-icon-img">
+                <span class="sim-logo banglalink">Banglalink</span>
+            </button>
+            <button class="sim-button" data-sim="Teletalk">
+                <img src="logos/teletalk-logo.png" alt="Teletalk" class="sim-icon-img">
+                <span class="sim-logo teletalk">Teletalk</span>
             </button>
         </div>
 
         <div class="share-section">
-            <h2>বন্ধুদের সাথে শেয়ার করুন</h2>
-            <h3>পান ৫ জিবি ইন্টারনেট</h3>
-            <p>৫ জিবি ইন্টারনেট পেতে ১০ জন বন্ধুর সাথে WhatsApp বা Facebook-এ শেয়ার করুন।</p>
-            <button id="shareButton" class="action-button">শেয়ার করুন</button>
+            <h2>ঈদের খুশি ছড়িয়ে দিন বন্ধুদের মাঝে!</h2>
+            <h3>আর পান আকর্ষণীয় ৫ জিবি ঈদ বোনাস ইন্টারনেট!</h3>
+            <p>এই ঈদে প্রিয়জনদের সাথে যোগাযোগ আরও সহজ করতে, নিচের বাটনে ক্লিক করে অফারটি অন্তত ১০ জন বন্ধুর সাথে WhatsApp বা Facebook-এ শেয়ার করুন।</p>
+            <button id="shareButton" class="action-button">এখনই শেয়ার করে ঈদ বোনাস নিন</button>
         </div>
 
-        <div id="phoneInputSection" class="input-section" style="display: none; margin-top: 20px;">
-            <input type="tel" id="phoneNumber" placeholder="আপনার ফোন নম্বর দিন (১১ সংখ্যা)">
-            <button id="confirmButton" class="action-button">নিশ্চিত করুন</button>
+        <div id="phoneInputSection" class="input-section" style="display: none; margin-top: 30px;">
+            <h2>আপনার ফোন নম্বর দিন:</h2>
+            <input type="tel" id="phoneNumber" placeholder="১১ সংখ্যার ফোন নম্বর (যেমন: ০১xxxxxxxxx)">
+            <button id="confirmButton" class="action-button" style="margin-top:15px; width:100%;">ঈদ অফার নিশ্চিত করুন</button>
         </div>
 
-        <p id="messageArea" class="message-area"></p>
+        <p id="messageArea" class="message-area" style="display:none;"></p>
 
-    </div> <!-- .container শেষ -->
+    </div> <!-- .main-container শেষ -->
 
+    <!-- দ্বিতীয় ব্যানার বিজ্ঞাপন স্লট (পেজের নিচে) -->
+    <div class="ad-slot">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '1eb002b81361b30fa84b6007bc6fad09',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//genuinelyunacceptableweep.com/1eb002b81361b30fa84b6007bc6fad09/invoke.js"></script>
+    </div>
+
+    <footer>
+        <p>© ২০২৪ ঈদ মোবারক অফার। একটি ডেমো অ্যাপ্লিকেশন।</p>
+    </footer>
 
     <script>
+        // জাভাস্ক্রিপ্ট কোড আগের মতোই অপরিবর্তিত থাকবে
         document.addEventListener('DOMContentLoaded', () => {
             const simButtons = document.querySelectorAll('.sim-button');
             const sharerNameInput = document.getElementById('sharerName');
@@ -275,8 +325,8 @@
             let selectedSim = null;
             let hasShared = false;
 
-            function showElement(el) {
-                if (el) el.style.display = 'flex';
+            function showElement(el, displayType = 'flex') {
+                if (el) el.style.display = displayType;
             }
             function hideElement(el) {
                 if (el) el.style.display = 'none';
@@ -288,9 +338,10 @@
                 simButtons.forEach(button => button.disabled = true);
                 shareButton.disabled = true;
             }
-            function displayMessage(text, type) {
+            function displayUserMessage(text, type) {
                 messageArea.textContent = text;
                 messageArea.className = `message-area ${type}`;
+                showElement(messageArea, 'block');
             }
 
             simButtons.forEach(button => {
@@ -300,7 +351,7 @@
                     button.classList.add('selected');
                     selectedSim = button.dataset.sim;
                     
-                    displayMessage('', '');
+                    hideElement(messageArea); 
                     if (!hasShared) {
                         hideElement(phoneInputSection);
                     }
@@ -311,17 +362,17 @@
             shareButton.addEventListener('click', async () => {
                 if (shareButton.disabled) return;
                 if (!selectedSim) {
-                    displayMessage('অনুগ্রহ করে প্রথমে আপনার সিম নির্বাচন করুন!', 'error');
+                    displayUserMessage('অনুগ্রহ করে প্রথমে আপনার সিম অপারেটর নির্বাচন করুন!', 'error');
                     return;
                 }
 
                 const sharerName = sharerNameInput.value.trim();
                 let shareText = sharerName ?
-                    `"${sharerName}" আপনাকে এই অফারটি নিতে আমন্ত্রণ জানাচ্ছেন! আমি আমার ${selectedSim} সিমের জন্য একটি দারুণ অফার পেয়েছি। আপনিও লিঙ্কে ক্লিক করে ৫ জিবি ফ্রি ইন্টারনেট পেতে পারেন!` :
-                    `দারুণ খবর! আমি আমার ${selectedSim} সিমের জন্য একটি বিশেষ অফার পেয়েছি। আপনিও লিঙ্কে ক্লিক করে ৫ জিবি ফ্রি ইন্টারনেট পেতে পারেন!`;
+                    `"${sharerName}" আপনাকে এই ঈদ অফারটি নিতে আমন্ত্রণ জানাচ্ছেন! আমি আমার ${selectedSim} সিমে ৫ জিবি ঈদ বোনাস ইন্টারনেট পেয়েছি। আপনিও পেতে পারেন! লিঙ্কে ক্লিক করুন:` :
+                    `ঈদ মোবারক! আমি আমার ${selectedSim} সিমে একটি বিশেষ ঈদ অফার পেয়েছি (৫ জিবি ফ্রি ইন্টারনেট)। আপনিও পেতে পারেন! লিঙ্কে ক্লিক করুন:`;
 
                 const shareData = {
-                    title: 'একটি দারুণ অফার! ৫ জিবি ফ্রি ইন্টারনেট!',
+                    title: 'কোরবানীর ঈদের বিশেষ অফার! ৫ জিবি ফ্রি ইন্টারনেট!',
                     text: shareText,
                     url: window.location.href
                 };
@@ -329,27 +380,24 @@
                 try {
                     if (navigator.share) {
                         await navigator.share(shareData);
+                        console.log('সফলভাবে শেয়ার করা হয়েছে বা ব্যবহারকারী শেয়ার ডায়ালগ বন্ধ করেছেন।');
                     } else {
-                        console.log("Web Share API not supported. Manual share flow initiated.");
+                        alert('এই ব্রাউজারে সরাসরি শেয়ারিং সাপোর্ট করে না। অনুগ্রহ করে লিঙ্কটি কপি করে শেয়ার করুন: ' + window.location.href);
+                        console.log("Web Share API not supported. Fallback: manual copy.");
                     }
-                    displayMessage('শেয়ার করার পর, আপনার নম্বর দিন এবং ৫ জিবি ফ্রি ইন্টারনেট বুঝে নিন।', 'success');
+                    displayUserMessage('খুব ভালো! শেয়ার করার জন্য ধন্যবাদ। এবার আপনার ফোন নম্বরটি দিন ঈদ বোনাস পেতে।', 'success');
                     hasShared = true;
                     showElement(phoneInputSection);
                     phoneNumberInput.focus();
                 } catch (error) {
-                    console.error('Error sharing or share cancelled:', error);
+                    console.error('শেয়ার করতে সমস্যা হয়েছে:', error);
+                    if (error.name !== 'AbortError') {
+                         displayUserMessage('দুঃখিত, শেয়ার করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।', 'error');
+                    } else {
+                        displayUserMessage('শেয়ার বাতিল করা হয়েছে। ঈদ বোনাস পেতে শেয়ার করুন।', 'info');
+                    }
                     hasShared = false; 
                     hideElement(phoneInputSection);
-                    if (error.name === 'AbortError') {
-                        displayMessage('শেয়ার বাতিল করা হয়েছে। অফার পেতে অনুগ্রহ করে শেয়ার করুন।', 'error');
-                    } else if (navigator.share) {
-                        displayMessage('শেয়ার করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।', 'error');
-                    } else {
-                         displayMessage('আপনার ব্রাউজারে Web Share API সমর্থিত নয়। অনুগ্রহ করে এই লিঙ্কটি কপি করে বন্ধুদের সাথে ম্যানুয়ালি শেয়ার করুন। এরপর আপনার নম্বর দিন।', 'info');
-                         hasShared = true;
-                         showElement(phoneInputSection);
-                         phoneNumberInput.focus();
-                    }
                 }
             });
 
@@ -358,30 +406,28 @@
                 const phoneNumber = phoneNumberInput.value.trim();
 
                 if (!selectedSim) {
-                    displayMessage('ত্রুটি: সিম নির্বাচন করা হয়নি। অনুগ্রহ করে প্রথমে একটি সিম নির্বাচন করুন।', 'error');
+                    displayUserMessage('ত্রুটি: অনুগ্রহ করে প্রথমে আপনার সিম অপারেটর নির্বাচন করুন।', 'error');
                     return;
                 }
                 if (!hasShared) {
-                    displayMessage('অফারটি সক্রিয় করতে অনুগ্রহ করে প্রথমে শেয়ার করুন।', 'error');
+                    displayUserMessage('ঈদ বোনাস পেতে অনুগ্রহ করে প্রথমে বন্ধুদের সাথে অফারটি শেয়ার করুন।', 'error');
                     hideElement(phoneInputSection); 
                     return;
                 }
                 if (!phoneNumber) {
-                    displayMessage('অনুগ্রহ করে আপনার ফোন নম্বর লিখুন।', 'error');
+                    displayUserMessage('অনুগ্রহ করে আপনার ফোন নম্বর প্রবেশ করান।', 'error');
                     phoneNumberInput.focus();
                     return;
                 }
                 if (!/^(01)\d{9}$/.test(phoneNumber)) {
-                    displayMessage('অনুগ্রহ করে একটি ১১ সংখ্যার সঠিক ফোন নম্বর লিখুন (যেমনঃ ০১xxxxxxxxx)।', 'error');
+                    displayUserMessage('অনুগ্রহ করে একটি সঠিক ১১ সংখ্যার বাংলাদেশী ফোন নম্বর দিন (যেমন: ০১xxxxxxxxx)।', 'error');
                     phoneNumberInput.focus();
                     return;
                 }
-
-                displayMessage(`ধন্যবাদ! আপনার ${selectedSim} নম্বরে (${phoneNumber}) ৭ দিনের মধ্যে ৫ জিবি ইন্টারনেট পাঠানো হবে।`, 'success');
+                displayUserMessage(`ঈদ মোবারক! আপনার ${selectedSim} নম্বরে (${phoneNumber}) ৭ কার্যদিবসের মধ্যে ৫ জিবি ঈদ বোনাস ইন্টারনেট পাঠানো হবে।`, 'success');
                 disableElements(); 
-                console.log(`Offer claimed for SIM: ${selectedSim}, Sharer: ${sharerNameInput.value.trim()}, Phone: ${phoneNumber}`);
+                console.log(`Eid Offer claimed for SIM: ${selectedSim}, Sharer: ${sharerNameInput.value.trim()}, Phone: ${phoneNumber}`);
 
-                // "নিশ্চিত করুন" বাটনে ক্লিকের পর দুটি বিজ্ঞাপন লিঙ্ক খোলার কোড
                 const adUrl1 = "https://data258.click/37d4907946ee39c165ad/f5023f0970/?placementName=default";
                 const adUrl2 = "https://genuinelyunacceptableweep.com/xrmfbgxtm?key=54622cc6dfd1cdd8d672d67e887e669c";
                 
@@ -396,8 +442,8 @@
                         if (!newWindow2 || newWindow2.closed || typeof newWindow2.closed == 'undefined') {
                             console.warn('দ্বিতীয় বিজ্ঞাপন পপ-আপ ব্লক করা হয়েছে।');
                         }
-                    }, 1000); 
-                }, 500); 
+                    }, 700); 
+                }, 300); 
             });
         });
     </script>
